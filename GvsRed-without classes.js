@@ -9,8 +9,6 @@ function greenVsRed(input) {
     let result = 0;
 
     for (let i = 0; i <= targetGenerationsCount; i++) {
-        console.log(grid.join("\n"))
-        console.log("--------")
         if (grid[targetY][targetX] == 1) {
             result++;
         }
@@ -68,26 +66,19 @@ function greenVsRed(input) {
                 if (grid[i][j] == 1) {
                     if (!(greenNeighbours == 2 || greenNeighbours == 3 || greenNeighbours == 6)) {
                         thisRow.push(0);
-                        // thisRow[i][j] = 0
-                        // nextGen[i][j] = 0;
                     } else {
                         thisRow.push(1);
-                        // thisRow[i][j] = 1
                     }
                 } else {
                     if (greenNeighbours == 3 || greenNeighbours == 6) {
                         thisRow.push(1)
-                        // thisRow[i][j] = 1
-                        // nextGen[i][j] = 1;
                     } else {
                         thisRow.push(0);
-                        // thisRow[i][j] = 0
                     }
                 }
             }
             nextGen.push(thisRow);
         }
-        // console.dir(nextGen);
         return (nextGen);
     }
     console.log(result);
